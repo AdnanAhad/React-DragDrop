@@ -14,6 +14,7 @@ const App = () => {
   const handleOnDrop = (e, toColumn) => {
     const item = e.dataTransfer.getData("item");
     const fromColumn = e.dataTransfer.getData("fromColumn");
+
     setColumns((prevColumn) => {
       const newFromColumn = prevColumn[fromColumn].filter((i) => i !== item);
       const toNewColumn = [...prevColumn[toColumn], item];
@@ -27,9 +28,14 @@ const App = () => {
   };
 
   const handlOnDragStart = (e, item, fromColumn) => {
-    console.log(columns);
+    console.log(e);
     e.dataTransfer.setData("item", item);
     e.dataTransfer.setData("fromColumn", fromColumn);
+    console.log(e);
+  };
+
+  const handleChange = (e) => {
+    console.log(e);
   };
 
   return (
